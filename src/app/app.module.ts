@@ -9,6 +9,7 @@ import { RegionComponent } from './region/region.component';
 import { DetailRegionComponent } from './detail-region/detail-region.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { PrincipalComponent } from './principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     RegionComponent,
     DetailRegionComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,

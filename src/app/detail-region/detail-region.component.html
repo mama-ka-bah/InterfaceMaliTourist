@@ -59,16 +59,150 @@
                 <p>Bambara</p>
            </div>
            <div class="caractRegion">
-                <button>Modifier</button>
-                <button>Suprimer</button>
+                <button data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Modifier</button>
+                <button data-toggle="modal" data-target="#attention">Supprimer</button>
            </div>
         </div>
         <div class="detailRegion2Dr">
             <img src="assets/images/images.jpg">
         </div>
     </div>
-
+        <div class="ajoutCommentaire">
+            <!-- <div class="photoProfil">
+                <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+            </div> -->
+            
+        </div>
     <div  class="commentaires">
+        <div class="formCommentaire">
+            <textarea name="" id="" cols="30" rows="10" placeholder="Ajouter un commentaire"></textarea>
+        </div>
+        <div class="actionsCommentaires">
+            <button>Annuler</button>
+            <button>Ajouter un commentaire</button>
+        </div>
+        <div class="mesCommentaires">
+            <div class="photoProfil">
+                <i style="color: black; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="uncommentaire">
+                <div>
+                    <p style="text-align: center;">Adama Coulibaly (il ya 1 jour)</p>
+                </div>
+                <div>
+                    <p>
+                        Mopti est une ville et une commune urbaine 
+                        de la région du delta intérieur du Niger au Mali.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mesCommentaires">
+            <div class="photoProfil">
+                <i style="color: black; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="uncommentaire">
+                <div>
+                    <p style="text-align: center;">Adama Coulibaly (il ya 1 jour)</p>
+                </div>
+                <div>
+                    <p>
+                        Mopti est une ville et une commune urbaine 
+                        de la région du delta intérieur du Niger au Mali.
+                    </p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter une region</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Nom:</label>
+              <input type="text" class="form-control myInput" id="recipient-name">
+            </div>
+  
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Nombre d'habitants:</label>
+              <input  type="text" class="form-control myInput" id="recipient-name" >
+            </div>
+  
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Code region:</label>
+              <input type="text" class="form-control myInput" id="recipient-name">
+            </div>
+  
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Domaine activité:</label>
+              <input type="text" class="form-control myInput" id="recipient-name">
+            </div>
+  
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Superficie:</label>
+              <input type="text" class="form-control myInput" id="recipient-name">
+            </div>
+  
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-labelt">Images:</label>
+             <input type="file"  id="files" name="files" multiple class="form-control myInput" >    <!--id="recipient-name" -->
+            </div>
+  
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Langue majoritaire:</label>
+              <textarea class="form-control myInput" id="message-text"></textarea>
+            </div>
+  
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-success">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#attention">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="attention" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attention !</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         Cette region sera Supprimer !
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-success">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>

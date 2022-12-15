@@ -65,6 +65,18 @@ body{
     align-items: center;
 }
 
+.myInput:focus{
+    outline: none !important;
+    border:1px solid #34C924;
+}
+
+/* .button_sucess{
+    background-color: #34C924;
+}
+.button_dangereux{
+    background-color: red;
+} */
+
 @media screen and (max-width:850px){
     .petitMenu{
         margin-bottom: 50px;
