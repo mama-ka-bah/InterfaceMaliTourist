@@ -1,3 +1,7 @@
+.contenuPrincipal{
+    margin-left: 15px;
+    margin-right: 15px;
+}
 .detailRegions{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -200,4 +204,27 @@
         margin-top: 25px;
         margin-bottom: 50px!important;
     }
+    .contenuPrincipal{
+        margin-top: -95.5px;
+    }
+}
+
+@media screen and (max-width:555px){
+    .petitMenu{
+        margin-top: 0;
+        /* margin-bottom: 50px; */
+      }
+
+    .inputRecherche input{
+        height: 50px!important;
+    }
+    .searchIcon{
+        height: 50px;
+    }
+
+    .ajouterR{
+        margin: 15px;
+        font-size: 20px;
+    }
+
 }

@@ -1,3 +1,4 @@
+
 .accueilCotentent{
     display: flex;
     flex-direction: column;
@@ -37,6 +38,11 @@
     padding: 30px;
     font-weight: bold;
 }
+
+.testt{
+    color: red;
+}
+
 
 
 @media screen and (max-width: 767px){

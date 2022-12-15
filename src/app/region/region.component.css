@@ -41,6 +41,8 @@
     width: 100%;
     margin-top: 50px;
     gap: 20px;
+    /* margin-right: 15px;
+    margin-left: 15px; */
     
     /* grid-template-areas:
     "ajouterR recherches recherches recherches recherches recherches" */
@@ -82,7 +84,7 @@
         margin-right: 2.5%;
     }
     .petitMenu{
-        margin-bottom: 50px;
+        margin-bottom: 70px;
       }
     
 }
@@ -116,7 +118,6 @@
         justify-content: flex-end;
         margin-right: 15px;
       }
-
 }
 
 @media screen and (max-width:555px){

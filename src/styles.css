@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.contenuPrincipal{
+    position: relative;
+    top: 50px;
+    right: 0;
+    left: 0;
+    margin-bottom: 70px;
+    margin-top: -23.5px;
+}
 body{
     margin: 0;
     padding: 0;
-    position: relative;
+    /* position: relative; */
 
 }
 
@@ -12,7 +20,8 @@ body{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
-    "ajouterR recherches recherches recherches recherches recherches"
+    "ajouterR recherches recherches recherches recherches recherches";
+    margin-top: 40px;
 
 }
 
@@ -70,12 +79,6 @@ body{
     border:1px solid #34C924;
 }
 
-/* .button_sucess{
-    background-color: #34C924;
-}
-.button_dangereux{
-    background-color: red;
-} */
 
 @media screen and (max-width:850px){
     .petitMenu{

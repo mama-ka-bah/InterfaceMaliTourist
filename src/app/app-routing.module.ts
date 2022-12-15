@@ -4,9 +4,19 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailRegionComponent } from './detail-region/detail-region.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { PrincipalComponent } from './principal/principal.component';
 import { RegionComponent } from './region/region.component';
 
 const routes: Routes = [
+
+
+  {path:"malitourist",component:PrincipalComponent,
+  children:[
+    { path:'accueil',component:AccueilComponent }, 
+    { path:'detailregion',component:DetailRegionComponent }, 
+    { path:'region',component:RegionComponent }, 
+  ]
+},
 
   {
     path:'',
@@ -14,9 +24,7 @@ const routes: Routes = [
     pathMatch:"full"
   },
 
-  { path:'accueil',component:AccueilComponent }, 
-  { path:'detailregion',component:DetailRegionComponent }, 
-  { path:'region',component:RegionComponent }, 
+  
   { path:'connexion',component:ConnexionComponent }, 
   { path:'inscription',component:InscriptionComponent }, 
 

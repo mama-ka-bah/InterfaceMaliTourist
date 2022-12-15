@@ -1,3 +1,80 @@
 .header{
     display: none;
 }
+
+.content-connexion{
+    background-image: url("/assets/images/images.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.formsConnexions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    flex-direction: column;
+    width: 50%;
+    gap: 25px;
+    padding: 25px;
+}
+
+.formsConnexions input{
+    border-color: #34C924;
+    height: 60px;
+}
+
+.button_envoyer_form_connexion{
+    padding: 15px;
+    border-color: #34C924;
+    background-color: #fff;
+    width: 180px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.titre_connexion{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.optionInscript{
+    background-color: #fff;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 15px;
+    height: 100px;
+    font-size: 25px;
+}
+
+.oublie{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.button_envoyer_form_connexion:hover{
+    background-color: #34C924;
+    color: white;
+}
+
+.testt:hover{
+    color: black;
+}
+
+.testt{
+    cursor: pointer;
+}
