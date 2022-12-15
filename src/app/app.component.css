@@ -1,0 +1,240 @@
+.main{
+    /* display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "contenuPrincipal"
+    "contenuPrincipal"
+    "contenuPrincipal"
+    "contenuPrincipal"
+    "contenuPrincipal"
+    "footer"
+    ;
+    grid-template-rows: repeat(6, 1fr); */
+
+
+}
+
+/* nav{
+    position: sticky;
+} */
+
+.myLinks a{
+    cursor: pointer;
+}
+.accueil, .region{
+    cursor: pointer;
+}
+
+.header{
+    /* grid-area: header; */
+    /* background-color: gray; */
+    /* height: 100px; */
+}
+.contenuPrincipal{
+    /* grid-area: contenuPrincipal; */
+    /* background-color: chartreuse; */
+    /* height: 71vh; */
+    margin: 50px;
+}
+
+
+.menu{
+    display: grid;
+    /* height: 14.5vh; */
+    background-color: #34C924;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "logo logo accueil region profil profil";
+}
+.logo{
+    grid-area: logo;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+.accueil, .region{
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    height: 75px;
+}
+
+.profil, .logo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.accueil{
+    grid-area: accueil;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.region{
+    grid-area: region;
+    background-color: #34C924;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profil{
+    grid-area: profil;
+    background-color: #34C924;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    display: grid;
+    /* height: 14.5vh; */
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "adresse adresse signature signature liens liens";
+    grid-area: footer;
+    background-color: cyan;
+}
+
+.adresse{
+    grid-area:adresse;
+
+    background-color: #34C924;
+    height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.signature{
+    grid-area:signature;
+    background-color: #34C924;
+    height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+ 
+}
+
+.liens{
+    grid-area:liens;
+    background-color: #34C924;
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: #34C924;
+    position: relative;
+    display: none;
+    /* position: fixed;
+    z-index: 999999;
+    width: 100%;
+    margin: 0;
+    padding: 0; */
+  }
+
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    background: #34C924;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    background-color: #fff;
+    color: #34C924;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #34C924;
+    color: white;
+  }
+
+
+  @media screen and (max-width:767px){
+    .header{
+        display: none;
+    }
+    .topnav{
+        display: block;
+    }
+    .footer{
+        font-size: 18px;
+    }
+
+    .liens, .adresse, .signature{
+        font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width:550px){
+   .contenuPrincipal{
+    margin: 0;
+   }
+   .footer{
+    display: none;
+   }
+  }
