@@ -25,6 +25,7 @@ export class InscriptionComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+   
   }
 
   onSubmit(): void {
@@ -34,14 +35,15 @@ export class InscriptionComponent implements OnInit {
       data => {
         console.log(data);
         this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.router.navigate(['/accueil']);
+        this.isSignUpFailed = false;    
+        
       },
       err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     );
+    this.router.navigateByUrl('/malitourist/accueil');
   }
 
 }
