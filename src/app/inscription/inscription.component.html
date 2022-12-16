@@ -1,17 +1,96 @@
+
+
+<form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+>
 <div class="content-connexion">
     <div class="formsConnexions">
-        <p class="titre_connexion">INSCRIPTION</p>
-        <input class="form-control form-control-lg myInput" type="text" placeholder="Nom d'utilisateur">
-        <input class="form-control form-control-lg myInput" type="text" placeholder="Mot de passe">
-        <input class="form-control form-control-lg myInput" type="text" placeholder="Confirmer le mot de passe">
-        <button type="button" class="button_envoyer_form_connexion">S'inscrire</button>
-        <!-- <div class="oublie">
-            <p style="font-size: 20px; font-weight: bold; color: #34C924; float: right;">Mot de passe oublié ?</p>
-        </div> -->
-    </div>
+            <p class="titre_connexion">INSCRIPTION</p>
+            <input class="form-control form-control-lg myInput" type="text" placeholder="Nom d'utilisateur"
+                name="username"
+                [(ngModel)]="form.username"
+                required
+                minlength="3"
+                maxlength="20"
+                #username="ngModel"
+             >
+             <div class="alert-danger erreurInscpt" *ngIf="username.errors && f.submitted">
+                <div *ngIf="username?.errors?.['required']">Username is required</div>
+                <div *ngIf="username?.errors?.['minlength']"> 
+                   
+                  Username must be at least 3 characters
+                </div>
+                <div *ngIf="username?.errors?.['maxlength']">
+                  Username must be at most 20 characters
+                </div>
+              </div>
+            <input class="form-control form-control-lg myInput" type="text" placeholder="Email"
+                type="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="form.email"
+                required
+                email
+                #email="ngModel"
+             >
 
-    <div class="optionInscript">
-        <p>Vous avez déjà un compte <span style="font-weight: bold;">Malitourist</span> ? <span style="font-size: 30px; font-weight: bold; color: #34C924;" class="testt">Connexion</span></p>
+             <div class="alert-danger erreurInscpt" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email?.errors?.['required']">Email is required</div>
+                <div *ngIf="email?.errors?.['email']">
+                  Email must be a valid email address
+                </div>
+              </div>
+
+            <input class="form-control form-control-lg myInput" type="email" placeholder="Mot de passe"
+                type="password"
+                class="form-control"
+                name="password"
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                #password="ngModel"
+             >
+
+             <div class="alert-danger erreurInscpt" *ngIf="password.errors && f.submitted">
+                <div *ngIf="password?.errors?.['required']">Password is required</div>
+                <div *ngIf="password?.errors?.['minlength']">
+                  Password must be at least 6 characters
+                </div>
+              </div>
+
+            <input class="form-control form-control-lg myInput" placeholder="Confirmer le mot de passe"
+                type="password"
+                class="form-control"
+                name="passwordC"
+                [(ngModel)]="form.passwordC"
+                required
+                minlength="6"
+                #passwordC="ngModel"
+            >
+
+            <div class="alert-danger erreurInscpt" *ngIf="f.submitted && form.password != form.passwordC">
+                 
+                 <div *ngIf="form.password != form.passwordC">
+                    Mot de passe différents
+                 </div>
+
+            </div>
+
+            <button type="submit" class="button_envoyer_form_connexion">S'inscrire</button>
+        
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br />{{ errorMessage }}
+              </div>
+        </div>
+
+        <div class="optionInscript">
+            <p>Vous avez déjà un compte <span style="font-weight: bold;">Malitourist</span> ? <span style="font-size: 30px; font-weight: bold; color: #34C924;" class="testt">Connexion</span></p>
+        </div>  
+
     </div>
-   
-</div>
+    
+</form>

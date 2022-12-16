@@ -6,7 +6,7 @@
     background-image: url("/assets/images/images.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 900px;
+    height: 1100px;
 
     width: 100%;
     display: flex;
@@ -25,7 +25,6 @@
     width: 50%;
     gap: 25px;
     padding: 25px;
-   
 }
 
 .formsConnexions input{
@@ -85,4 +84,40 @@
 
 .testt{
     cursor: pointer;
+}
+
+.erreurInscpt{
+ height: 50px;
+ width: 100%;
+ display: flex;   
+ justify-content: center;
+ align-items: center;
+}
+.erreurInscpt div{
+
+    /* text-align: center;
+    vertical-align: middle; */
+}
+
+@media screen and (max-width:767px){
+    .formsConnexions{
+        width: 80%;
+    }
+    .optionInscript{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:767px){
+    .formsConnexions{
+        width: 95%;
+    }
+    .optionInscript{
+        width: 95%;
+        font-size: 18px;
+    }
+
+    .testt{
+        font-size: 20px!important;
+    }
 }

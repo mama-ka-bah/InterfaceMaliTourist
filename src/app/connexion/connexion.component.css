@@ -78,3 +78,26 @@
 .testt{
     cursor: pointer;
 }
+
+@media screen and (max-width:767px){
+    .formsConnexions{
+        width: 80%;
+    }
+    .optionInscript{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:767px){
+    .formsConnexions{
+        width: 95%;
+    }
+    .optionInscript{
+        width: 95%;
+        font-size: 18px;
+    }
+
+    .testt{
+        font-size: 20px!important;
+    }
+}
