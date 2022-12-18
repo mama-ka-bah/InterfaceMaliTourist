@@ -25,6 +25,8 @@ export class InscriptionComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
+    
    
   }
 
@@ -43,7 +45,7 @@ export class InscriptionComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
-    this.router.navigateByUrl('/malitourist/accueil');
+    this.router.navigateByUrl('/connexion');
   }
 
 }

@@ -4,15 +4,21 @@
           <!-- <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i> -->
           <p style="color: white; font-size: 40px;">MaliTourist</p>
         </div>
-        <div routerLink="/malitourist/accueil" class="accueil">
+        <div routerLink="/malitourist/accueil" routerLinkActive="active" class="accueil">
           <p>Accueil</p>
         </div>
-        <div routerLink="/malitourist/region" class="region">
+        <div routerLink="/malitourist/region" routerLinkActive="active" class="region">
           <p>Region</p>
         </div>
         <div class="profil">
-          <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+          <button *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
+            <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+          </button>
+          <button *ngIf="userContent.username != null"  (click)="logout()" style="border: none; background-color: #34C924;">  
+            <i style="color: white; font-size: 40px;" class="fa fa-sign-out" aria-hidden="true"></i>
+          </button> 
         </div>
+        
     </nav>
   </header>
 <main class="main">
@@ -25,7 +31,13 @@
     <div id="myLinks">
       <a routerLink="/accueil" href="#news">Accueil</a>
       <a routerLink="/region" href="#contact">Region</a>
-      <a style="color: white; font-size: 20px;" href="#about">Profil</a>
+      <div style="display: flex; justify-content: space-between; width: 100%;">
+        <a style="color: white; font-size: 20px;" href="#about">Profil</a>
+        
+        <button (click)="logout()" type="button"><i style="color: white; font-size: 40px; cursor: pointer;"  class="fa fa-sign-out" aria-hidden="true"></i></button>
+
+      </div>
+       
     </div>
     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">

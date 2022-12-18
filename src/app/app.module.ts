@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 
@@ -13,6 +14,7 @@ import { DetailRegionComponent } from './detail-region/detail-region.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { httpInterceptorProviders } from './connexion/_helpers/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,9 @@ import { PrincipalComponent } from './principal/principal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

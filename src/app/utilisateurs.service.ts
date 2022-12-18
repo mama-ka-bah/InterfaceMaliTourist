@@ -27,6 +27,13 @@ export class UtilisateursService {
   //   return this.http.post<any>(`http://localhost:8080/api/auth/signup`, user);
   // }
 
+  connexion(username: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'signin', {
+      username,
+      password
+    }, httpOptions);
+  }
+
 
   inscription(username: string, email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signup', {
