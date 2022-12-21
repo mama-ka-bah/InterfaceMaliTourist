@@ -1,23 +1,23 @@
+.contenuPrincipal{
+    margin-bottom: 125px;
+}
+.absenceRegions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+}
+li.current{
+    color: #34C924!important;
+} */
 .contenuRegion{
     display: flex;
     flex-direction: column;
-    /* .main{ */
-        /* display: grid;
-        height: 100vh;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        "header"
-        "contenuPrincipal"
-        "contenuPrincipal"
-        "contenuPrincipal"
-        "contenuPrincipal"
-        "contenuPrincipal"
-        "footer"
-        ;
-        grid-template-rows: repeat(6, 1fr); */
-    /* } */
-    margin-bottom: 50px;
 }
+
+
 
 .voirPlusRegion button{
     border: none;
@@ -107,12 +107,13 @@
         flex-direction: column;
         justify-content: space-between;
         /* row-gap: 15px; */
-        margin-top: -50px;
+        margin-top: -60px;
       }
 
       .ajouterR{
         justify-content: flex-start;
         gap: 15px;
+        cursor: pointer;
       }
       .recherches{
         justify-content: flex-end;
@@ -121,11 +122,6 @@
 }
 
 @media screen and (max-width:555px){
-    .petitMenu{
-        margin-top: 0;
-        /* margin-bottom: 50px; */
-      }
-
     .inputRecherche input{
         height: 50px!important;
     }

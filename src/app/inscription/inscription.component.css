@@ -1,3 +1,19 @@
+/* .iconBack{
+    color: #34C924;
+    font-size: 50px;
+}
+
+.back{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.back button{
+    background-color: none;
+    border: none;
+    margin-left: 8%;
+} */
+
 .header{
     display: none;
 }

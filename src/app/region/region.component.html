@@ -1,7 +1,7 @@
 <div class="contenuRegion" class="contenuPrincipal">
     <div class="petitMenu">
-        <div class="ajouterR">
-            <div data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i></div>
+        <div class="ajouterR" *ngIf="admin" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+            <div><i class="fa fa-plus" aria-hidden="true"></i></div>
             <div>Region</div>
         </div>
         <div class="recherches">
@@ -14,9 +14,30 @@
             
         </div>
     </div>
-
+    <!-- C:\Users\mkkeita\imagesMalitourist\algoblocks.png
+    C:/Users/mkkeita/imagesMalitourist/algoblocks.png
+    C:/Users/mkkeita/Desktop/projects/angular/interfaceMaliTourist/src/assets/images/algoblocks.png -->
     <div class="regions">
-        <div class="region">
+        <div class="region" *ngFor="let region of regions | paginate: {itemsPerPage:4,currentPage: p} ; index as i " >
+          <!-- assets/images/images.jpg -->
+            <div class="imageRegion">
+                <img src="/assets/images/{{region.photoaregion}}">
+            </div>
+            <div class="descriptionsRegion">
+                <div class="nomRegion">
+                    {{region.nom}}
+                </div>
+                <div class="descriptionRegion">
+                    {{region.description}}
+                </div>
+                <div class="voirPlusRegion">
+                    <button routerLink="/malitourist/detailregion/{{region.id}}">Voir plus</button>
+                </div>
+            </div>
+           
+        </div>
+       
+        <!-- <div class="region">
             <div class="imageRegion">
                 <img src="assets/images/images.jpg">
             </div>
@@ -52,28 +73,9 @@
                     <button>Voir plus</button>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="region">
-            <div class="imageRegion">
-                <img src="assets/images/images.jpg">
-            </div>
-            <div class="descriptionsRegion">
-                <div class="nomRegion">
-                    Mopti
-                </div>
-                <div class="descriptionRegion">
-                    Koulikoro est une ville et une commune urbaine du Mali.
-                     Capitale de la région de Koulikoro,
-                      Koulikoro est située sur les rives du fleuve Niger.
-                </div>
-                <div class="voirPlusRegion">
-                    <button>Voir plus</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="region">
+        <!-- <div class="region">
             <div class="imageRegion">
                 <img src="assets/images/images.jpg">
             </div>
@@ -90,7 +92,12 @@
                     <button>Voir plus</button>
                 </div>
             </div>
-        </div>
+        </div> -->
+    </div>
+    <div *ngIf="absenceRegions" class="absenceRegions">Aucune region pour le moment</div>
+
+    <div style="margin-top: 25px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center;">
+      <pagination-controls style="color: #34C924;" (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>
 
@@ -105,7 +112,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="formRegion" (ngSubmit)="submitRegion()">
+        <form [formGroup]="formRegion" action="" enctype="multipart/form-data"> 
+            <!-- (ngSubmit)="submitRegion()" -->
           <!-- <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nom:</label>
             <input type="text" class="form-contro myInput" id="recipient-name">
@@ -115,10 +123,10 @@
             <input type="text" class="form-control myInput" id="recipient-name"  formControlName="nomRegion">
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nombre d'habitants:</label>
             <input type="text" class="form-control myInput" id="recipient-name"  formControlName="">
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Code region:</label>
@@ -136,8 +144,32 @@
           </div>
 
           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Langue majoritaire:</label>
+            <input type="text" class="form-control myInput" id="recipient-name"  formControlName="langue_majoritaire">
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Annee: </label>
+            <input type="number" class="form-control myInput" id="recipient-name"  formControlName="annee">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre de population: </label>
+            <input type="number" class="form-control myInput" id="recipient-name"  formControlName="nombreHabitant">
+          </div>
+
+          <!-- <div  class="form-group">
+            <select id="annee" formControlName="typeAct" class="form-select form-control inputvalue"
+              [(ngModel)]="">
+              <option selected disabled></option>
+              <option *ngFor="let typeActivite of typeActivites$" [(ngValue)]="typeActivite.typeActivite">
+                {{typeActivite.typeActivite}}</option>
+            </select>
+            <label for="activity">Type activité<span style="color: red;">*</span></label>
+          </div> -->
+
+          <div class="form-group">
             <label for="recipient-name" class="col-form-label">Images:</label>
-           <input type="file"  id="files" name="files" multiple class="form-control myInput"  formControlName="file">    <!-- (change)="onFileChangeRegion($event)" -->
+           <input type="file"  id="files" name="files" multiple class="form-control myInput" (change)="onFileChangeRegion($event)"  formControlName="file">    <!-- " -->
           </div>
 
           <div class="form-group">
@@ -148,8 +180,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-success">Envoyer</button>
+        <!-- <button type="button" (onclick)="submitRegion()"  class="btn btn-danger" data-dismiss="modal">Annuler</button> -->
+        <button type="button" (click)="submitRegion()" class="btn btn-success">Envoyer</button>
       </div>
     </div>
   </div>

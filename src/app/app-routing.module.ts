@@ -13,14 +13,14 @@ const routes: Routes = [
   {path:"malitourist",component:PrincipalComponent,
   children:[
     { path:'accueil',component:AccueilComponent }, 
-    { path:'detailregion',component:DetailRegionComponent }, 
+    { path:'detailregion/:id',component:DetailRegionComponent }, 
     { path:'region',component:RegionComponent }, 
   ]
 },
 
   {
     path:'',
-    redirectTo:"/accueil",
+    redirectTo:"malitourist/accueil",
     pathMatch:"full"
   },
 

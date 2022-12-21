@@ -2,6 +2,6 @@ export class Region {
     nomRegion!: string;
     description!: string;
     code_region!: string;
-    superficie!: number;
+    superficie!: string;
     langue_majoritaire!: string;
 }

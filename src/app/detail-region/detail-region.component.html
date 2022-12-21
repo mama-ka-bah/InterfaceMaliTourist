@@ -18,13 +18,14 @@
     <div class="contenuDetailR">
         <div class="detailRegions">
             <div class="detailRegion1">
-                <img src="assets/images/images.jpg">
+              <img src="/assets/images/{{detailsRegions.photoaregion}}">
             </div>
             <div  class="detailRegion2">
                 <p class="texte">
-                    Mopti est une ville et une commune urbaine de la région du delta 
+                    <!-- Mopti est une ville et une commune urbaine de la région du delta 
                     intérieur du Niger au Mali. La ville est la capitale du Cercle de 
-                    Mopti et de la Région de Mopti.
+                    Mopti et de la Région de Mopti. -->
+                    {{detailsRegions.description}}
                 </p>
             </div>
         </div>
@@ -33,7 +34,8 @@
             <div class="detailRegion1Dr">
                <div class="caractRegion">
                     <p class="libCaract">Nom: </p>
-                    <p>Mopti: </p>
+                    <!-- <p>Mopti: </p> -->
+                    {{detailsRegions.nom}}
                </div>
                <div class="caractRegion">
                     <p class="libCaract">Nombre d’habitants: </p>
@@ -41,31 +43,35 @@
                </div>
                <div class="caractRegion">
                     <p class="libCaract">Code region</p>
-                    <p>10 5140 hbts</p>
+                    <!-- <p>10 5140 hbts</p> -->
+                    {{detailsRegions.code_region}}
                </div>
-               <div class="caractRegion">
+               <!-- <div class="caractRegion">
                     <p class="libCaract">Nombre d’habitants: </p>
-                    <p>10 5140 hbts</p>
-               </div>
+                    {{detailsRegions.code_region}}
+               </div> -->
                <div class="caractRegion"> 
                     <p class="libCaract">Domaine activité: </p>
-                    <p>10 5140 hbts</p>
+                    <!-- <p>10 5140 hbts</p> -->
+                    {{detailsRegions.domaine_activite}}
                </div>
                <div class="caractRegion">
                     <p class="libCaract">Superficie:  </p>
-                    <p>142 100 Km²</p>
+                    <!-- <p>142 100 Km²</p> -->
+                    {{detailsRegions.superficie}}
                </div>
                <div class="caractRegion">
                     <p class="libCaract">Langues majoritaire: </p>
-                    <p>Bambara</p>
+                    <!-- <p>Bambara</p> -->
+                    {{detailsRegions.langue_majoritaire}}
                </div>
                <div class="caractRegion">
-                    <button data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Modifier</button>
-                    <button data-toggle="modal" data-target="#attention">Supprimer</button>
+                    <button *ngIf="admin" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Modifier</button>
+                    <button *ngIf="admin" data-toggle="modal" data-target="#attention">Supprimer</button>
                </div>
             </div>
             <div class="detailRegion2Dr">
-                <img src="assets/images/images.jpg">
+              <img src="/assets/images/{{detailsRegions.photoaregion}}">
             </div>
         </div>
             <div class="ajoutCommentaire">
@@ -75,14 +81,35 @@
                 
             </div>
         <div  class="commentaires">
-            <div class="formCommentaire">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Ajouter un commentaire"></textarea>
-            </div>
+           
+              <form style="width: 100%;" [formGroup]="formCommentaire" action="" enctype="multipart/form-data">
+                <div class="formCommentaire">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Ajouter un commentaire" formControlName="contenu"></textarea>
+              </div>
+              </form>
+            
             <div class="actionsCommentaires">
-                <button>Annuler</button>
-                <button>Ajouter un commentaire</button>
+                <button (click)=" annulerCommentaire()">Annuler</button>
+                <button (click)="submitCommentaire()">Ajouter un commentaire</button>
             </div>
-            <div class="mesCommentaires">
+            <div class="mesCommentaires" *ngFor="let comm of commentaires ; index as i ">
+                <div class="photoProfil">
+                    <i style="color: black; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <div class="uncommentaire">
+                    <div>
+                        <p style="text-align: center;">{{comm.auteur.username}}(il ya 1 jour)</p>
+                    </div>
+                    <div>
+                        <p>
+                            {{comm.contenu}}
+                        </p>
+                    </div>
+                </div>
+    
+            </div>
+    
+            <!-- <div class="mesCommentaires">
                 <div class="photoProfil">
                     <i style="color: black; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
                 </div>
@@ -98,25 +125,7 @@
                     </div>
                 </div>
     
-            </div>
-    
-            <div class="mesCommentaires">
-                <div class="photoProfil">
-                    <i style="color: black; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
-                </div>
-                <div class="uncommentaire">
-                    <div>
-                        <p style="text-align: center;">Adama Coulibaly (il ya 1 jour)</p>
-                    </div>
-                    <div>
-                        <p>
-                            Mopti est une ville et une commune urbaine 
-                            de la région du delta intérieur du Niger au Mali.
-                        </p>
-                    </div>
-                </div>
-    
-            </div>
+            </div> -->
     
         </div>
     </div>
@@ -126,53 +135,53 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ajouter une region</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Modifier une region</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form [formGroup]="formRegionU" action="" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Nom:</label>
-                  <input type="text" class="form-control myInput" id="recipient-name">
-                </div>
-      
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Nombre d'habitants:</label>
-                  <input  type="text" class="form-control myInput" id="recipient-name" >
+                  <input type="text" class="form-control myInput" id="recipient-name" value="{{detailsRegions.nom}}" formControlName="nomRegion">
                 </div>
       
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Code region:</label>
-                  <input type="text" class="form-control myInput" id="recipient-name">
+                  <input type="text" class="form-control myInput" id="recipient-name" value="{{detailsRegions.code_region}}" formControlName="code_region">
                 </div>
       
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Domaine activité:</label>
-                  <input type="text" class="form-control myInput" id="recipient-name">
+                  <input type="text" class="form-control myInput" id="recipient-name" value="{{detailsRegions.domaine_activite}}" formControlName="domaineAct">
                 </div>
       
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Superficie:</label>
-                  <input type="text" class="form-control myInput" id="recipient-name">
+                  <input type="text" class="form-control myInput" id="recipient-name" value="{{detailsRegions.superficie}}" formControlName="superficie">
                 </div>
       
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-labelt">Images:</label>
-                 <input type="file"  id="files" name="files" multiple class="form-control myInput" >    <!--id="recipient-name" -->
+                 <input type="file"  id="files" name="files" multiple class="form-control myInput" value="/assets/images/{{detailsRegions.photoaregion}}" (change)="onFileChangeRegion($event)"  formControlName="file" >    <!--id="recipient-name" -->
+                </div>
+
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-labelt">Langue majoritaire:</label>
+                 <input type="text"  id="files" name="files" multiple class="form-control myInput" value="{{detailsRegions.langue_majoritaire}}" formControlName="langue_majoritaire">    <!--id="recipient-name" -->
                 </div>
       
                 <div class="form-group">
-                  <label for="message-text" class="col-form-label">Langue majoritaire:</label>
-                  <textarea class="form-control myInput" id="message-text"></textarea>
+                  <label for="message-text" class="col-form-label">Description</label>
+                  <textarea class="form-control myInput" id="message-text" value="{{detailsRegions.description}}" formControlName="description"></textarea>
                 </div>
       
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-              <button type="button" class="btn btn-success">Envoyer</button>
+              <button type="button" class="btn btn-success" (click)="updateRegion()">Envoyer</button>
             </div>
           </div>
         </div>
@@ -202,9 +211,13 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-              <button type="button" class="btn btn-success">Valider</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" (click)="supprimerRions()">Valider</button>
             </div>
           </div>
         </div>
       </div>
+
+
+
+      
 </div>

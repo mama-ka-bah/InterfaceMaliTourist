@@ -5,6 +5,9 @@
     justify-content: center;
     align-items: center;
     background-color: white;
+    
+    /* margin-top: -100.5px!important; */
+    margin-bottom: 500px!important;
 }
 
 .cntRegion{
@@ -18,7 +21,7 @@
 .carrousel{
     height: 60vh;
     width: 100%;
-    background-color: brown;
+    /* background-color: brown; */
 }
 
 .troisRegions{
@@ -54,6 +57,10 @@
     }
     .cntRegion{
         width: 100%;
+    }
+
+    .accueilCotentent{
+        margin-top: -100.5px!important;
     }
 }
 

@@ -43,9 +43,10 @@ export class ConnexionComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         console.log(data);
-        // this.reloadPage();
+        
         if(this.isLoggedIn){
           this.router.navigateByUrl('/malitourist/accueil');
+          //this.reloadPage();
        }
       },
       err => {

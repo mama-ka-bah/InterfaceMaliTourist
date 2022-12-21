@@ -25,8 +25,6 @@ export class InscriptionComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
-    
    
   }
 

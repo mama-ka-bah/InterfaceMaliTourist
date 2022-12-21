@@ -11,7 +11,7 @@
           <p>Region</p>
         </div>
         <div class="profil">
-          <button *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
+          <button  routerLink="/connexion" *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
             <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
           </button>
           <button *ngIf="userContent.username != null"  (click)="logout()" style="border: none; background-color: #34C924;">  
@@ -32,9 +32,14 @@
       <a routerLink="/accueil" href="#news">Accueil</a>
       <a routerLink="/region" href="#contact">Region</a>
       <div style="display: flex; justify-content: space-between; width: 100%;">
-        <a style="color: white; font-size: 20px;" href="#about">Profil</a>
-        
-        <button (click)="logout()" type="button"><i style="color: white; font-size: 40px; cursor: pointer;"  class="fa fa-sign-out" aria-hidden="true"></i></button>
+        <a  class="lienProfil" style="color: white; font-size: 20px;" href="#about">Profil</a> 
+
+        <button  routerLink="/inscription" *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
+          <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+        </button>
+        <button *ngIf="userContent.username != null"  (click)="logout()" style="border: none; background-color: #34C924;">  
+          <i style="color: white; font-size: 40px;" class="fa fa-sign-out" aria-hidden="true"></i>
+        </button> 
 
       </div>
        
@@ -48,32 +53,32 @@
     <div class="contenuPrincipal">
       <!-- <app-accueil></app-accueil> -->
       <router-outlet></router-outlet>
-
-
-      <footer class="footer">
-        <div class="adresse">
-          <p>Bamako/Djicoroni-para</p>
-        </div>
-        <div class="signature">
-          <p>tout droits réservés | 2021</p>
-        </div>
-        <div class="liens">
-          <div>
-            <i style="font-size: 30px; font-weight: bold; color: #fff;" class="fa fa-phone" aria-hidden="true"></i>
-          </div>
-          <div>
-            <i style="font-size: 30px; font-weight: bold; color: #fff;" class="fa fa-facebook" aria-hidden="true"></i>
-          </div>
-          <div>
-            <i style="font-size: 30px; font-weight: bold; color: #fff;" class="fa fa-instagram" aria-hidden="true"></i>
-          </div>
-        </div>
-      </footer>
   
     </div>
     
 
   </main>
+
+
+  <footer class="footer">
+    <div class="adresse">
+      <p>Bamako/Djicoroni-para</p>
+    </div>
+    <div class="signature">
+      <p>tout droits réservés | 2021</p>
+    </div>
+    <div class="liens">
+      <div>
+        <i style="font-size: 30px; font-weight: bold; color: #fff;" class="fa fa-phone" aria-hidden="true"></i>
+      </div>
+      <div>
+        <i style="font-size: 30px; font-weight: bold; color: #fff;" class="fa fa-facebook" aria-hidden="true"></i>
+      </div>
+      <div>
+        <i style="font-size: 30px; font-weight: bold; color: #fff;" class="fa fa-instagram" aria-hidden="true"></i>
+      </div>
+    </div>
+  </footer>
 
   
   

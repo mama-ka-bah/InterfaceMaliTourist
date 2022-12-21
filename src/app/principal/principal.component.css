@@ -35,6 +35,11 @@
     position: sticky;
 } */
 
+.lienProfil:hover{
+    color: #000;
+    background-color: #34C924!important;
+}
+
 .myLinks a{
     cursor: pointer;
 }
