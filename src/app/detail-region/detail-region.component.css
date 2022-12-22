@@ -11,6 +11,10 @@
     "detailRegion1 detailRegion1 detailRegion2 detailRegion2"
 }
 
+.connect{
+    margin-bottom: 150px;
+}
+
 
 .detailRegion1{
     grid-area: detailRegion1;
@@ -150,7 +154,7 @@
 }
 
 .formCommentaire textarea{
-    width: 70%;
+    width: 50%;
 }
 
 .actionsCommentaires button{
@@ -165,10 +169,11 @@
 .uncommentaire{
     display: flex;
     align-items: flex-start;
-    width: 400px;
+    width: 50%;
     flex-direction: column;
     justify-content: flex-start;
-    background: rgba(217, 217, 217, 0.15);
+    background: rgba(217, 217, 217, 0.30);
+    padding: 15px;
 }
 .mesCommentaires{
     width: 100%;

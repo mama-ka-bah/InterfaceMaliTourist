@@ -1,3 +1,6 @@
+.erreur{
+    border-color: red;
+}
 .contenuPrincipal{
     margin-bottom: 125px;
 }
@@ -17,7 +20,9 @@ li.current{
     flex-direction: column;
 }
 
-
+.champObligatoire{
+    color: red;
+}
 
 .voirPlusRegion button{
     border: none;

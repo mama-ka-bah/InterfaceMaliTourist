@@ -4,6 +4,7 @@ import { RegionService } from '../region.service';
 import { TokenStorageService } from '../token-storage.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommentaireService } from '../commentaire.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -13,13 +14,25 @@ import { CommentaireService } from '../commentaire.service';
 })
 export class DetailRegionComponent implements OnInit {
 
-  detailsRegions !: any;
-  currentUser !: any;
-  idR !: any;
-  commentaires !: any;
-  photoaregionU !: any;
+  detailsRegions : any;
+  currentUser : any;
+  idR : any;
+  commentaires : any;
+  photoaregionU : any;
 
-  admin = false;
+  connect:boolean = true;
+  admin:boolean = false;
+  donneesForm : any;
+  currentUser1: any;
+
+
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showUserBoard = false;
+  username?: string;
+  private roles: string[] = [];
+
+
 
   constructor(
     private routes : ActivatedRoute,
@@ -30,42 +43,74 @@ export class DetailRegionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.detailRegions();
-    this.commentairesRions();
 
+
+
+    this.isLoggedIn = !!this.token.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.token.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+      this.username = user.username;
+    }
+
+
+
+
+   this.detailRegions();
+    this.commentairesRions();
+    this.formRegionU;
     //this.formRegionU.get('code_region')!.setValue("this.detailsRegions.code_region");
 
-    this.currentUser = this.token.getUser();
-    console.log("jhdshj djhdj djdjh "+ this.currentUser.id);
-    if(this.currentUser.roles.includes("ROLE_ADMIN")){
+    //this.currentUser = this.token.getUser();
+
+
+
+    this.currentUser1 = this.token.getUser();
+
+    this.currentUser = this.token.getUser().roles;
+    // console.log("le role de user: " + this.currentUser.role)
+
+    if(this.currentUser=="ROLE_ADMIN"){
       this.admin = true;
     }
 
-    this.currentUser = this.token.getUser().roles;
+    console.log("####################  **********" + this.token + "mmmmmmmmmmmm: " + this.connect)
+
+    if(this.token.getUser() == null){
+      this.connect=false;
+     // alert(this.connect)
+    }
+
   }
 
   detailRegions(){
     this.idR = this.routes.snapshot.params['id'];
     this.detaliR.recupererDetailRegions(this.idR).subscribe( data =>{
       this.detailsRegions = data;
-     console.log(this.detailsRegions)
     });
   }
 
   commentairesRions(){
     this.commentaire.recuperCommentairesRegions(this.idR).subscribe(data => {
       this.commentaires = data;
-      console.log(this.commentaires);
+     
     })
   }
 
   supprimerRions(){
     this.detaliR.supprimerRegions(this.idR).subscribe(data => {
       this.commentaires = data;
+     // this.reloadPage();
+      this.router.navigateByUrl('/malitourist/region');
+      //this.reloadPage();
     })
 
-    this.router.navigateByUrl('/malitourist/region');
-    //this.reloadPage();
+   
   }
 
 
@@ -100,6 +145,15 @@ export class DetailRegionComponent implements OnInit {
           }
         } 
           ]
+          if(!this.isLoggedIn){
+            Swal.fire({
+              icon: 'error',
+              title: 'Veuillez vous connecter',
+              text: 'Veuillez creer une session',
+              footer: '<a href="/connexion">Connexion</a>'
+            })
+          }
+          else if(this.formCommentaire.get('contenu')?.valid){
             this.commentaire.ajouterComentaireAregion(region).subscribe(data => {
               console.log(data);
             });
@@ -108,7 +162,16 @@ export class DetailRegionComponent implements OnInit {
               contenu: new FormControl('')
               }) ;
 
-              //this.reloadPage();
+              this.reloadPage();
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Erreur',
+              text: 'Veuillez un commentaire!',
+              // footer: '<a href="">Why do I have this issue?</a>'
+            })
+          }
+           
   }
 
   annulerCommentaire(){
@@ -116,10 +179,6 @@ export class DetailRegionComponent implements OnInit {
       contenu: new FormControl('')
       }) ;
   }
-
-
-
-
 
 
 
@@ -162,8 +221,6 @@ export class DetailRegionComponent implements OnInit {
 
   updateRegion() {
 
-    alert("test")
-
     let data = new FormData();
 
       this.photoaregionU = this.formRegionU.get('fileSource')!.value!;
@@ -202,7 +259,7 @@ export class DetailRegionComponent implements OnInit {
                 fileSource: new FormControl('')
               }) ;
 
-            //  this.actualise();
+           this.reloadPage();
       
   }
 

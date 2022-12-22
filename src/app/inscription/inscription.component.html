@@ -86,6 +86,12 @@
 
             </div>
 
+            <select style="border-color: #34C924;" class="form-control form-control-lg myInput" *ngIf="showAdminBoard" name="pets" id="pet-select" [(ngModel)]="form.role">
+              <option value="Roles" selected>Roles</option>
+              <option value="admin">admin</option>
+              <option value="user">user</option>
+          </select>
+
             <button type="submit" class="button_envoyer_form_connexion">S'inscrire</button>
         
             <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

@@ -24,7 +24,7 @@ export class RegionService {
     data.append("file", file);
     data.append('region', JSON.stringify(region).slice(1,JSON.stringify(region).lastIndexOf(']')));
     data.append('habitantAnnee', JSON.stringify(habitantAnnee).slice(1,JSON.stringify(habitantAnnee).lastIndexOf(']')));
-     console.log("###############: " + httpOptions.headers.getAll)
+     //console.log("###############: " + httpOptions.headers.getAll)
     return this.http.post(AUTH_API + 'ajout_region_habitant', data);
   }
 

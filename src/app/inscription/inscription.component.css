@@ -115,14 +115,14 @@
     vertical-align: middle; */
 }
 
-@media screen and (max-width:767px){
+/* @media screen and (max-width:767px){
     .formsConnexions{
         width: 80%;
     }
     .optionInscript{
         width: 80%;
     }
-}
+} */
 
 @media screen and (max-width:767px){
     .formsConnexions{
@@ -135,5 +135,8 @@
 
     .testt{
         font-size: 20px!important;
+    }
+    footer{
+        display: none!important;
     }
 }

@@ -35,7 +35,20 @@ export class UtilisateursService {
   }
 
 
-  inscription(username: string, email: string, password: string): Observable<any> {
+  inscription(username: string, email: string, password: string, roles:string): Observable<any> {
+    //roles: string[] = [];
+    let role: Array<string> = [roles,"user"];
+    return this.http.post(AUTH_API + 'signup', {
+      username,
+      email,
+      password,
+      role
+    }, httpOptions);
+  }
+
+  inscriptionU(username: string, email: string, password: string): Observable<any> {
+    //roles: string[] = [];
+    // let role: Array<string> = [roles,"user"];
     return this.http.post(AUTH_API + 'signup', {
       username,
       email,

@@ -11,12 +11,55 @@
           <p>Region</p>
         </div>
         <div class="profil">
-          <button  routerLink="/connexion" *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
+          <!-- <button  routerLink="/connexion" *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
             <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
           </button>
           <button *ngIf="userContent.username != null"  (click)="logout()" style="border: none; background-color: #34C924;">  
             <i style="color: white; font-size: 40px;" class="fa fa-sign-out" aria-hidden="true"></i>
-          </button> 
+          </button>  -->
+          
+
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../../assets/profil2.jpeg" class="rounded-circle" height="30" width="30" alt=""
+                    loading="lazy" />
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Mon profile</a></li>
+                <li><a class="dropdown-item" href="#">Paramètre</a></li>
+                <li><a class="dropdown-item" href="#" (click)="logout()">Déconnexion</a></li>
+            </ul>
+        </li> -->
+
+        <div class="dropdown">
+          <button style="background-color: #34C924; border: none;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                <img src="../assets/images/profil.png" class="rounded-circle" height="60" width="60" alt=""
+                    loading="lazy"  />
+            <!-- </a> -->
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a *ngIf="userContent.username != null" class="dropdown-item" href="#">{{userContent.username}}</a>
+            <a *ngIf="userContent.username != null" class="dropdown-item" href="#">{{userContent.roles}}</a>
+            <a *ngIf="showAdminBoard" class="dropdown-item" routerLink="/inscription">Ajouter un utilisateur</a>
+
+            <button class="dropdown-item" routerLink="/connexion" *ngIf="userContent.username==null" style="border: none; background-color: #34C924; text-align: center; font-size: 25px; color: white; padding: 0;">
+              <!-- <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i> -->
+             Connexion
+            
+            </button>
+
+            <button class="dropdown-item" *ngIf="userContent.username != null"  (click)="logout()" style="border: none; background-color: #34C924; text-align: center; font-size: 25px; color: white; padding: 0;">  
+              <!-- <i style="color: white; font-size: 40px;" class="fa fa-sign-out" aria-hidden="true"></i> -->
+              Deconnexion
+            </button> 
+
+           
+          </div>
+        </div>
+
         </div>
         
     </nav>
@@ -29,13 +72,15 @@
     <a  style="color: white; font-size: 20px;" href="#home" class="active">MaliTourist</a>
     <!-- Navigation links (hidden by default) -->
     <div id="myLinks">
-      <a routerLink="/accueil" href="#news">Accueil</a>
-      <a routerLink="/region" href="#contact">Region</a>
+      <a routerLink="/malitourist/accueil" routerLinkActive="active" href="#news">Accueil</a>
+      <a routerLink="/malitourist/region" routerLinkActive="active" href="#contact">Region</a>
       <div style="display: flex; justify-content: space-between; width: 100%;">
         <a  class="lienProfil" style="color: white; font-size: 20px;" href="#about">Profil</a> 
 
-        <button  routerLink="/inscription" *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
-          <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i>
+        <button  routerLink="/connexion" *ngIf="userContent.username==null" style="border: none; background-color: #34C924;">
+          <!-- <i style="color: white; font-size: 40px;" class="fa fa-user" aria-hidden="true"></i> -->
+          <img src="../assets/images/profil.png" class="rounded-circle" height="60" width="60" alt=""
+          loading="lazy"  />
         </button>
         <button *ngIf="userContent.username != null"  (click)="logout()" style="border: none; background-color: #34C924;">  
           <i style="color: white; font-size: 40px;" class="fa fa-sign-out" aria-hidden="true"></i>
